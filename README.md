@@ -29,6 +29,7 @@ Clone the project repository from GitHub:
 ```bash
 git clone https://github.com/ZhukMax/rust-web-kit.git my-new-project
 ```
+Total Clones: <!--CLONE_COUNT--> 0
 
 ### Setup Environment Variables
 Create a `.env` file in the root directory with the following variables:
