@@ -1,0 +1,44 @@
+name: Update Clone Count
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-clones:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Get clone count and update total
+        env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          CLONE_DATA=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            https://api.github.com/repos/${{ github.repository }}/traffic/clones)
+          CLONE_COUNT=$(echo $CLONE_DATA | jq '.count')
+
+          echo "Clones in last 14 days: $CLONE_COUNT"
+
+          if [ -f .clone_count ]; then
+            TOTAL_COUNT=$(cat .clone_count)
+          else
+            TOTAL_COUNT=0
+          fi
+
+          NEW_TOTAL=$((TOTAL_COUNT + CLONE_COUNT))
+
+          echo $NEW_TOTAL > .clone_count
+          echo "Total Clones: $NEW_TOTAL"
+
+          sed -i "s/<!--CLONE_COUNT-->.*/<!--CLONE_COUNT--> $NEW_TOTAL/" README.md
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github@zhukmax.com'
+          git add README.md .clone_count
+          git commit -m "Update total clone count" || echo "No changes to commit"
+          git push
