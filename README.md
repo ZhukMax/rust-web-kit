@@ -1,5 +1,14 @@
 # Rust Web Kit
 
+Basic setup for developing a web application, API or website in the 🦀 Rust language and the Actix-web framework.
+
+## Features
+- Built with **Actix-web** for high-performance HTTP handling.
+- **SeaORM** for seamless database integration.
+- **Handlebars** template engine for safe and efficient HTML rendering.
+- `.env` support for environment-specific configuration.
+- **Docker** for containerization application.
+
 ## Getting Started
 
 ### Prerequisites
@@ -18,7 +27,7 @@ docker run --name sea_ms_db -e POSTGRES_PASSWORD=secret_password -d postgres
 Clone the project repository from GitHub:
 
 ```bash
-git clone https://github.com/ZhukMax/rust-web-kit.git
+git clone https://github.com/ZhukMax/rust-web-kit.git my-new-project
 ```
 
 ### Setup Environment Variables
