@@ -1,0 +1,26 @@
+[package]
+name = "rust-web-kit"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# Web framework
+actix-web = "4"
+# ORM
+sea-orm = { version = "1.1.4", features = ["sqlx-postgres"] }
+sea-orm-cli = "1.1.4"
+# Database driver
+sqlx = { version = "0.8.3", features = ["runtime-tokio-native-tls", "postgres"] }
+# Template engine
+handlebars = { version = "6.3.0", features = ["dir_source"] }
+tokio = { version = "1", features = ["full"] }
+# The .env settings
+dotenv = "0.15.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1.0.138"
+http = "1.2.0"
+# Static files
+actix-files = "0.6.6"
+
+[dev-dependencies]
+sea-orm-cli = "1.1.4"
