@@ -38,8 +38,8 @@ jobs:
 
       - name: Commit changes
         run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github@zhukmax.com'
+          git config --global user.name 'ZhukMax'
+          git config --global user.email 'mail@zhukmax.com'
           git add README.md .clone_count
           git commit -m "Update total clone count" || echo "No changes to commit"
           git push
