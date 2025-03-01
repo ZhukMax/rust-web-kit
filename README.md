@@ -1,4 +1,6 @@
 # Rust Web Kit
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=blue&label=Clones&query=$.clones&url=https://raw.githubusercontent.com/ZhukMax/rust-web-kit/main/.github/.clone_count)
 
 Basic setup for developing a web application, API or website in the 🦀 Rust language and the Actix-web framework.
 
@@ -29,7 +31,6 @@ Clone the project repository from GitHub:
 ```bash
 git clone https://github.com/ZhukMax/rust-web-kit.git my-new-project
 ```
-Total Clones: <!--CLONE_COUNT--> 0
 
 ### Setup Environment Variables
 Create a `.env` file in the root directory with the following variables:

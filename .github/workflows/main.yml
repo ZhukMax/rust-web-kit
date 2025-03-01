@@ -2,7 +2,7 @@ name: Update Clone Count
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * 0'
   workflow_dispatch:
 
 jobs:
@@ -23,18 +23,15 @@ jobs:
 
           echo "Clones in last 14 days: $CLONE_COUNT"
 
-          if [ -f .clone_count ]; then
-            TOTAL_COUNT=$(cat .clone_count)
+          if [ -f .github/.clone_count ]; then
+            TOTAL_CLONES=$(jq '.clones' .github/.clone_count)
           else
             TOTAL_COUNT=0
           fi
 
-          NEW_TOTAL=$((TOTAL_COUNT + CLONE_COUNT))
-
-          echo $NEW_TOTAL > .clone_count
+          UPDATED_CLONES=$((TOTAL_CLONES + NEW_CLONES))
+          echo "{\"clones\": $UPDATED_CLONES}" > .github/.clone_count
           echo "Total Clones: $NEW_TOTAL"
-
-          sed -i "s/<!--CLONE_COUNT-->.*/<!--CLONE_COUNT--> $NEW_TOTAL/" README.md
 
       - name: Commit changes
         run: |
