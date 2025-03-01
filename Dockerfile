@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y libssl-dev pkg-config && rm -rf /var/li
 COPY . .
 
 # Building a binary file for the release version
-RUN cargo build --release && strip target/release/sea_ms
+RUN cargo build --release && strip target/release/rust-web-kit
 
 # Final image
 FROM gcr.io/distroless/cc
@@ -16,11 +16,11 @@ FROM gcr.io/distroless/cc
 WORKDIR /app
 
 # Copy the compiled binary from the build stage
-COPY --from=builder /app/target/release/sea_ms /app/sea_ms
+COPY --from=builder /app/target/release/rust-web-kit /app/rust-web-kit
 COPY view /app/view
 COPY static /app/static
 COPY .env /app/.env
 
 EXPOSE 8080
 
-CMD ["/app/sea_ms"]
+CMD ["/app/rust-web-kit"]
