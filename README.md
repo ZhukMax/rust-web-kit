@@ -1,4 +1,5 @@
 # Rust Web Kit
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=green&label=Clones&query=$.clones&url=https://raw.githubusercontent.com/ZhukMax/rust-web-kit/counter/.github/.clone_count)
 
@@ -33,11 +34,12 @@ git clone https://github.com/ZhukMax/rust-web-kit.git my-new-project
 ```
 
 ### Setup Environment Variables
-Create a `.env` file in the root directory with the following variables:
+For **production** is better use GitHub Actions, GitLab CI or another Secrets sending method in Container.
+For **local development** you can create a `.env` file in the root directory with the following variables:
 
 ```env
-SEAMS_HOST=0.0.0.0
-SEAMS_PORT=8080
+HOST=0.0.0.0
+PORT=8080
 
 DATABASE_USER=dbuser
 DATABASE_PASSWORD=secret_password
@@ -59,3 +61,7 @@ make build
 
 ## License
 SeaMS is open-source software licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Contribute
+**Working on your first Pull Request?**
+You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://kcd.im/pull-request)
