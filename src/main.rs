@@ -1,10 +1,10 @@
 mod db;
 mod templates;
 
-use std::env;
-use actix_files::Files;
-use actix_web::{web, App, HttpServer};
 use crate::db::get_connection;
+use actix_files::Files;
+use actix_web::{App, HttpServer, web};
+use std::env;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -26,13 +26,13 @@ async fn main() -> std::io::Result<()> {
             .app_data(web::Data::new(template_manager.handlebars.clone()))
             .service(Files::new("/static", "./static").show_files_listing())
 
-        // There is a place for routes 
-            // .service(
-            //     web::scope("/")
-            //         .route("/{url:.*}", web::get().to(page_handler))
-            // )
+        // There is a place for routes
+        // .service(
+        //     web::scope("/")
+        //         .route("/{url:.*}", web::get().to(page_handler))
+        // )
     })
-        .bind((host.as_str(), port))?
-        .run()
-        .await
+    .bind((host.as_str(), port))?
+    .run()
+    .await
 }

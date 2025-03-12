@@ -1,5 +1,5 @@
-use std::env;
 use handlebars::Handlebars;
+use std::env;
 
 pub struct TemplateManager {
     pub handlebars: Handlebars<'static>,

@@ -35,22 +35,23 @@ git clone https://github.com/ZhukMax/rust-web-kit.git my-new-project
 
 ### Setup Environment Variables
 For **production** is better use GitHub Actions, GitLab CI or another Secrets sending method in Container.
+
 For **local development** you can create a `.env` file in the root directory with the following variables:
 
 ```env
 HOST=0.0.0.0
 PORT=8080
 
-DATABASE_USER=dbuser
-DATABASE_PASSWORD=secret_password
+DATABASE_USER=<--user-->
+DATABASE_PASSWORD=<--password-->
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
-DATABASE_NAME=my_db
+DATABASE_NAME=<--name-->
 
-DEV_MODE=fasle
+DEV_MODE=false
 ```
 
-Replace `secret_password` with the password you set for your Docker PostgreSQL instance.
+Replace `<--password-->` with the password you set for your Docker PostgreSQL instance.
 
 ### Install Dependencies
 Run the following command to install the required dependencies:
