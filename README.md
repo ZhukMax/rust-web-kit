@@ -1,7 +1,6 @@
 # Rust Web Kit
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=green&label=Clones&query=$.clones&url=https://raw.githubusercontent.com/ZhukMax/rust-web-kit/counter/.github/.clone_count)
 
 Basic setup for developing a web application, API or website in the 🦀 Rust language and the Actix-web framework.
 
